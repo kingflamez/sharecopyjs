@@ -1,4 +1,13 @@
 /**
+ * Checks if the device supports the Web Share API on a mobile operating system.
+ *
+ * @returns {boolean} True if sharing is available.
+ */
+export function canShare(): boolean {
+  return typeof navigator.share === 'function' && isMobileOS();
+}
+
+/**
  * Checks if the device is running on a mobile operating system.
  *
  * @returns {boolean} True if the user agent matches a mobile OS.

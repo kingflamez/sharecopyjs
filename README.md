@@ -16,6 +16,8 @@ npm install sharecopyjs
 
 ## Usage
 
+### Share or Copy Text
+
 ```ts
 import { shareCopy, ShareCopyParams } from 'sharecopyjs';
 
@@ -30,6 +32,25 @@ const params: ShareCopyParams = {
 
 shareCopy(params);
 ```
+
+### Check Sharing Availability (canShare)
+> Use the `canShare` function to check if the Web Share API is available:
+
+```ts
+import { canShare } from 'sharecopyjs';
+
+if (canShare()) {
+  console.log('Display share icon');
+} else {
+  console.log('Display copy icon');
+}
+```
+
+#### Why Use `canShare`?
+- **Simple**: Focuses on whether the device supports **Web Share**.
+- **Practical**: Helps you decide if a share button or fallback copy icon should be displayed.
+
+
 
 ## Screenshots
 ### Mobile View

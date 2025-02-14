@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { shareCopy } from '../src/shareCopy';
+import { canShare, shareCopy } from '../src/shareCopy';
 
 const originalExecCommand = document.execCommand;
 
@@ -242,5 +242,72 @@ describe('shareCopy', () => {
 
     // Restore document.execCommand.
     document.execCommand = originalExecCommand;
+  });
+});
+
+
+describe('canShare', () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('should return true if navigator.share is available and device is mobile', () => {
+    // Simulate mobile environment by overriding navigator.userAgent
+    Object.defineProperty(navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)',
+      configurable: true,
+    });
+
+    // Mock navigator.share to simulate availability
+    Object.defineProperty(navigator, 'share', {
+      value: vi.fn(),
+      configurable: true,
+    });
+
+    expect(canShare()).toBe(true);
+  });
+
+  it('should return false if navigator.share is not available', () => {
+    // Simulate non-mobile environment or no navigator.share
+    Object.defineProperty(navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+      configurable: true,
+    });
+
+    Object.defineProperty(navigator, 'share', {
+      value: undefined,
+      configurable: true,
+    });
+
+    expect(canShare()).toBe(false);
+  });
+
+  it('should return false if device is not mobile even if navigator.share is available', () => {
+    // Simulate desktop environment with navigator.share available
+    Object.defineProperty(navigator, 'userAgent', {
+      value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+      configurable: true,
+    });
+
+    Object.defineProperty(navigator, 'share', {
+      value: vi.fn(),
+      configurable: true,
+    });
+
+    expect(canShare()).toBe(false);
+  });
+
+  it('should return false if userAgent is undefined', () => {
+    Object.defineProperty(navigator, 'userAgent', {
+      value: undefined,
+      configurable: true,
+    });
+
+    Object.defineProperty(navigator, 'share', {
+      value: vi.fn(),
+      configurable: true,
+    });
+
+    expect(canShare()).toBe(false);
   });
 });
