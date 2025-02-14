@@ -34,7 +34,7 @@ shareCopy(params);
 ## Screenshots
 ### Mobile View
 ![Mobile Screenshot 1](https://github.com/kingflamez/sharecopyjs/raw/main/SCREENSHOTS/Mobile1.jpg)
-![Mobile Screenshot 2](https://github.com/kingflamez/sharecopyjs/raw/main/SCREENSHOTS/Mobile2.jpgg)
+![Mobile Screenshot 2](https://github.com/kingflamez/sharecopyjs/raw/main/SCREENSHOTS/Mobile2.jpg)
 ![Mobile Screenshot 3](https://github.com/kingflamez/sharecopyjs/raw/main/SCREENSHOTS/Mobile3.jpg)
 
 ### Web View
