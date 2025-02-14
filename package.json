@@ -1,6 +1,6 @@
 {
   "name": "sharecopyjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight package for sharing text or copying it to the clipboard with fallback support.",
   "main": "dist/sharecopyjs.cjs.js",
   "module": "dist/sharecopyjs.es.js",
