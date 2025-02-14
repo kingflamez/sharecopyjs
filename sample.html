@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShareCopyJS Test</title>
+</head>
+<body>
+  <h1>ShareCopyJS Test</h1>
+  <button id="share-btn">Share or Copy Text</button>
+  <p id="status">Click the button to test ShareCopyJS.</p>
+
+  <script type="module">
+    import { shareCopy } from './dist/sharecopyjs.es.js';
+
+    document.getElementById('share-btn').addEventListener('click', async () => {
+      try {
+        await shareCopy({
+          text: 'This is a test message for ShareCopyJS!',
+          title: 'ShareCopyJS Test',
+          url: 'https://example.com',
+          onSuccess: (action) => {
+            document.getElementById('status').innerText = `Successfully executed ${action}`;
+          },
+          onFail: (error, action) => {
+            document.getElementById('status').innerText = `Failed to execute ${action}: ${error.message}`;
+          }
+        });
+      } catch (error) {
+        document.getElementById('status').innerText = `Unexpected error: ${error.message}`;
+      }
+    });
+  </script>
+</body>
+</html>
