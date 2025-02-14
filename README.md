@@ -32,3 +32,11 @@ shareCopy(params);
 ```
 
 ## Screenshots
+### Mobile View
+![Mobile Screenshot 1](./SCREENSHOTS/Mobile1.jpg)
+![Mobile Screenshot 2](./SCREENSHOTS/Mobile2.jpg)
+![Mobile Screenshot 3](./SCREENSHOTS/Mobile3.jpg)
+
+### Web View
+![Web Screenshot 1](./SCREENSHOTS/Web1.jpg)
+![Web Screenshot 2](./SCREENSHOTS/Web2.jpg)
